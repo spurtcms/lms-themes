@@ -134,7 +134,7 @@ export default async function HomePage() {
                     <>
                   {console.log(data,'11couseData')}
 
-                    <Link href={`/posts/${data.spaceSlug}`} class="border border-gray-300 inline-block rounded-lg overflow-hidden relative group">
+                    <Link href={`/posts/${data.id}`} class="border border-gray-300 inline-block rounded-lg overflow-hidden relative group">
                    
          
                     {data.categories?.at(-1)?.categoryName&&<span class=" absolute top-3 left-4 border-0  h-7 py-1 px-2 rounded bg-white text-base font-light text-black leading-5 ">
