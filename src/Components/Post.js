@@ -1,7 +1,6 @@
 import { fetchGraphQl } from "@/api/graphicql";
 import CategoryList from "./CategoryList";
 import { GET_POSTS_CATEGORY_QUERY, GET_POSTS_SLUG_QUERY } from "@/api/query";
-import Link from "next/link";
 
 export default async function Post({params}) {
     const varibale={
@@ -16,12 +15,12 @@ export default async function Post({params}) {
         <section className=" py-6 px-8 border-b border-gray-300 ">
           <ul class=" mb-8 w-full max-w-7xl mx-auto lg:px-6 flex items-center gap-3  ">
             <li className="flex items-center gap-3">
-              <Link
-                href="/"
+              <a
+                href=""
                 className=" overflow-hidden text-ellipsis whitespace-nowrap  text-base text-grey-2 font-light leading-5 after:inline-block after:w-1 after:h-2  after:bg-[url('/img/bread-arrow.svg')] after:bg-contain after:bg-no-repeat flex items-center gap-3  line-clamp-1 "
               >
                 All Courses
-              </Link>
+              </a>
             </li>
             <li>
               <a

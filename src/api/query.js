@@ -13,8 +13,8 @@ export const GET_POSTS_SIGN_QUERY = `mutation($singData: MemberDetails!) {
   }`
 
 
-  export const GET_POSTS_LIST_QUERY = `query($limit: Int!,$offset: Int!,$categoriesId:Int!){
-    spaceList(limit: $limit,offset: $offset,categoriesId:$categoriesId){
+  export const GET_POSTS_LIST_QUERY = `query($limit: Int!,$offset: Int!){
+    spaceList(limit: $limit,offset: $offset){
       spacelist{
         id
         spaceName
@@ -29,6 +29,7 @@ export const GET_POSTS_SIGN_QUERY = `mutation($singData: MemberDetails!) {
       }
     }
   }
+  
   `;
 
 
@@ -74,20 +75,3 @@ export const GET_POSTS_SIGN_QUERY = `mutation($singData: MemberDetails!) {
   }
   }
   `;
-
-
-
-  // list
-
-  export const GET_POST_CATEGORY_LIST=`query($categoryGroupId: Int, $hierarchyLevel: Int,$checkEntriesPresence:Int,$limit: Int!,$offset: Int!){
-    categoriesList(categoryGroupId:$categoryGroupId,limit:$limit,offset:$offset,hierarchyLevel:$hierarchyLevel,checkEntriesPresence:$checkEntriesPresence){
-     categories{
-      categoryName
-      categorySlug
-      parentId
-      id
-      createdOn
-    }
-      count
-    }
-  }`

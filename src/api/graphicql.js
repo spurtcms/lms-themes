@@ -14,14 +14,7 @@ export const fetchGraphQl = async (GET_POSTS_QUERY,varia) => {
         variables: varia
       })
     });
-    if(entries.data){
-      return entries.data
-    }
-    else
-    {
-      return entries
-    }
-     
+     return entries.data
   } catch (error) {
     throw error;
   }
@@ -40,11 +33,6 @@ export const postGraphQl = async (GET_POSTS_QUERY,varia,check,rember) => {
 
     }
     if(check==="login"){
-      if(entries?.errors){
-        cookies().set("token-error",entries?.errors?.[0]?.message)
-        
-      }
-      console.log(entries?.errors,"wererrwwrewer")
       if(entries?.templateMemberLogin){
         if(rember==""){
           cookies().set('token',entries?.templateMemberLogin)

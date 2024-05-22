@@ -10,24 +10,9 @@ if(data){
     if(sess?.value==="remeber"){
     }
     if(sess?.value==="not-rember"){
-        // cookies().set("remeber-key","")
+        cookies().set("remeber-key","")
         redirect("/auth/login")
     }
 }
     
 }
-
-
-export async function tokencookie(){
-    const TokenValue = cookies().get('token')
-    return TokenValue&&TokenValue?.value;
-     
-  }
-
-  export async function tokenerror(){
-    const TokenValue = cookies().get('token-error')
-    return TokenValue&&TokenValue?.value;
-     
-  }
-
-  

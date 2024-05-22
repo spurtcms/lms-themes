@@ -4,33 +4,24 @@ import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 import Image from "next/image";
 import { redirect, usePathname } from 'next/navigation'
-import { Rememberme, tokencookie } from "@/api/serverActions";
-import { useRouter } from "next/navigation";
+import { Rememberme } from "@/api/serverActions";
 export default function Header() {
   const pathename=usePathname()
+  useEffect(()=>{
+    if(sessionStorage&&sessionStorage){
+     if(sessionStorage.getItem("session-key")){
+         if(pathename==="/auth/login"){
+          redirect("/")
+         }
+     }else{
+      if(pathename !="/auth/login"){
+      Rememberme(sessionStorage.getItem("session-key"))
 
- let router=useRouter();
-
-  // useEffect(()=>{
-  //   const tokenvalue=async()=>{
-  //     let tokenkey=await tokencookie()
-   
-      if(sessionStorage&&sessionStorage){
-       if(sessionStorage.getItem("session-key")){
-           if(pathename==="/auth/login"){
-            router.push("/")
-           }
-       }else{
-        if(pathename !="/auth/login"){
-        Rememberme(sessionStorage.getItem("session-key"))
-   
-        }
-   
-       }
       }
-//      }
-//      tokenvalue()
-// },[])
+
+     }
+    }
+},[])
   return (
     pathename !=="/auth/sign-up"&& pathename !=="/auth/login"&&
     <header class=" h-[4.5rem] bg-white border-b flex items-center sticky top-0 z-50 border-gray-300 ">
